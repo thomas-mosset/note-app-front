@@ -1,7 +1,7 @@
 <template>
   <div class="Signin">
     <p>
-    Signin
+    Signup
     </p>
   </div>
 </template>

@@ -44,7 +44,7 @@
     <v-col cols="12" md="5" lg="3" sm="8" xs="12">
       <v-card title="Create a profile">
         <v-card-actions>
-          <v-btn><router-link to="/signin" class="router-link signin-router">Signin</router-link></v-btn>
+          <v-btn><router-link to="/signup" class="router-link signin-router">Signup</router-link></v-btn>
           <v-icon>mdi-account-plus</v-icon>
         </v-card-actions>
       </v-card>

@@ -9,6 +9,13 @@
 <script>
 export default {
   name: 'myAccount',
+
+  // prevent user to access this page if not logged in
+  beforeCreate () {
+    if (this.$store.state.isLogged === false) {
+      this.$router.push({ name: 'login' })
+    }
+  }
 }
 </script>
 

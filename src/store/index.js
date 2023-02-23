@@ -18,9 +18,9 @@ export default createStore({
         notes: [],
       },
     ],
-    islogged : false,
-    loggedUser : [],
-    loginMessageError : "",
+    isLogged: false,
+    loggedUser: [],
+    loginMessageError: "",
   },
   getters: {
     loginMessageError (state) {
