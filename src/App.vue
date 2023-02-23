@@ -64,10 +64,34 @@
     <v-main>
       <router-view/>
     </v-main>
+
+    <v-footer
+      class="footer text-center d-flex flex-column"
+      color="primary"
+    >
+      <div>
+        <a 
+          v-for="icon in icons"
+          :key="icon.icon"
+          :href="icon.link"
+          target="blank"
+        >
+          <v-btn
+            class="mx-1"
+            :icon="icon.icon"
+            variant="text"
+            color="button"
+          ></v-btn>
+        </a>
+      </div>
+
+      <div>
+        <strong>Thomas Mosset</strong> | 2023
+      </div>
+    </v-footer>
   </v-app>
   
 </template>
-
 
 <script>
 export default {
@@ -75,6 +99,16 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
+    icons: [
+      {
+        link: "https://www.thomasmosset.fr/",
+        icon: 'mdi-application-outline',
+      },
+      {
+        link: "https://www.linkedin.com/in/thomasmosset/",
+        icon: 'mdi-linkedin',
+      }
+    ],
   }),
 };
 </script>
@@ -87,17 +121,13 @@ export default {
   text-align: center;
 }
 
-nav {
-  padding: 30px;
+a {
+  font-weight: bold;
+  color: #0f0e17;
+  text-decoration: none;
 
-  a {
-    font-weight: bold;
-    color: #0f0e17;
-    text-decoration: none;
-
-    &.router-link-exact-active {
-      color: #ff8906;
-    }
+  &.router-link-exact-active {
+    color: #ff8906;
   }
 }
 </style>
