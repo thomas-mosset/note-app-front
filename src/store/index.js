@@ -38,7 +38,7 @@ export default createStore({
         if (userInSate.email === user.email) {
 
           if (userInSate.password === user.password) {
-            state.islogged = true;
+            state.isLogged = true;
             state.loggedUser.push(userInSate);
   
             // empty error message

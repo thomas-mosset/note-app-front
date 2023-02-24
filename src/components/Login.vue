@@ -1,7 +1,7 @@
 <template>
   <v-form 
     v-model="valid"
-    @submit.prevent="login(user)"
+    @submit.prevent="submitLogin(user)"
     ref="form"
     class="my-14"
   >
@@ -112,6 +112,13 @@ export default {
         passwordField.type = 'password';
       }
     },
+
+    submitLogin(user) {
+      this.login(user);
+
+      // Redirect to the profil page
+      this.$router.push('my-account');
+    }
   },
 
   computed: {
