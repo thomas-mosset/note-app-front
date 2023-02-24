@@ -42,8 +42,8 @@
             <v-list-item-icon>
               <v-icon>mdi-logout-variant</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>
-              <router-link to="/logout">Logout</router-link>
+            <v-list-item-title >
+              <router-link to="/logout" @click="logout();">Logout</router-link>
               </v-list-item-title>
           </v-list-item>
 
@@ -67,5 +67,10 @@ export default {
     drawer: false,
     group: null,
   }),
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+    },
+  },
 };
 </script>

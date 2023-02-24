@@ -13,6 +13,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "login" */ '../views/LoginView.vue')
   },
   {
+    path: '/logout',
+    name: 'logout',
+    redirect: { name: 'login' }, // redirect to the login page
+  },
+  {
     path: '/signup',
     name: 'signup',
     component: () => import(/* webpackChunkName: "signup" */ '../views/SignupView.vue')
@@ -21,6 +26,10 @@ const routes = [
     path: '/my-account',
     name: 'my-account',
     component: () => import(/* webpackChunkName: "my-account" */ '../views/myAccountView.vue')
+  },
+  { path: '/:pathMatch(.*)*', 
+    name: 'NotFound',
+    component: () => import(/* webpackChunkName: "my-account" */ '../views/NotFoundView.vue')
   },
 ];
 

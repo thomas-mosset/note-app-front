@@ -28,8 +28,12 @@
             v-model="user.password"
             :rules="passwordRules"
             label="Password"
+            id="password"
             required
-          ></v-text-field>
+            :append-icon="pwdState ?'mdi-eye-off':'mdi-eye'"   
+            @click:append="togglePwd"
+          >
+          </v-text-field>
         </v-col>
       </v-row>
 
@@ -67,6 +71,7 @@ export default {
   name: 'TheLogin',
   data: () => ({
     valid: false,
+    pwdState: false,
     user: {
       email: '',
       password: '',
@@ -94,6 +99,19 @@ export default {
 
   methods: {
     ...mapActions(['login']),
+
+    // Toggle pwd state to show or hide the pwd to the client
+    togglePwd() {
+      const passwordField = document.getElementById('password');
+
+      this.pwdState = !this.pwdState;
+
+      if (this.pwdState === true) {
+        passwordField.type = 'text';
+      } else {
+        passwordField.type = 'password';
+      }
+    },
   },
 
   computed: {

@@ -39,7 +39,7 @@ export default createStore({
 
           if (userInSate.password === user.password) {
             state.islogged = true;
-            state.loggedUser.push(user);
+            state.loggedUser.push(userInSate);
   
             // empty error message
             state.loginMessageError = "";
@@ -50,11 +50,19 @@ export default createStore({
           state.loginMessageError = "Email and/or password incorrect !";
         }
       }
-    }
+    },
+
+    LOGOUT (state) {
+      state.isLogged = false;
+      state.loggedUser = [];
+    },
   },
   actions: {
     login (context, user) {
       context.commit('LOGIN', user);
+    },
+    logout (context) {
+      context.commit('LOGOUT');
     }
   },
 })
