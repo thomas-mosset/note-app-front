@@ -89,7 +89,16 @@ export default createStore({
           }
         }
       }
-    }
+    },
+
+    DELETE_PROFILE (state, loggedUser) {
+      const deletedProfile = state.users.find(user => user.id === loggedUser.id);
+
+      state.users = state.users.filter(user => user !== deletedProfile);
+
+      state.isLogged = false;
+      state.loggedUser = [];
+    },
   },
   actions: {
     login (context, user) {
@@ -100,6 +109,11 @@ export default createStore({
     },
     editUserInfos (context, editedUserInfos) {
       context.commit('EDIT_USER_INFOS', editedUserInfos);
+    },
+    deleteProfile (context, loggedUser) {
+      console.log("deleteProfile - loggedUser", loggedUser);
+
+      context.commit('DELETE_PROFILE', loggedUser);
     }
   },
 })

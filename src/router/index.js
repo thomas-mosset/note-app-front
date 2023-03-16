@@ -32,6 +32,11 @@ const routes = [
     name: 'my-informations',
     component: () => import(/* webpackChunkName: "my-informations" */ '../views/myInformationsView.vue'),
   },
+  {
+    path: '/profile-successfully-deleted',
+    name: 'profile-successfully-deleted',
+    component: () => import(/* webpackChunkName: "profile-successfully-deleted" */ '../views/profileDeletedView.vue'),
+  },
   { path: '/:pathMatch(.*)*', 
     name: 'NotFound',
     component: () => import(/* webpackChunkName: "my-account" */ '../views/NotFoundView.vue')
