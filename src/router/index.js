@@ -25,7 +25,12 @@ const routes = [
   {
     path: '/my-account',
     name: 'my-account',
-    component: () => import(/* webpackChunkName: "my-account" */ '../views/myAccountView.vue')
+    component: () => import(/* webpackChunkName: "my-account" */ '../views/myAccountView.vue'),
+  },
+  {
+    path: '/my-account/my-informations',
+    name: 'my-informations',
+    component: () => import(/* webpackChunkName: "my-informations" */ '../views/myInformationsView.vue'),
   },
   { path: '/:pathMatch(.*)*', 
     name: 'NotFound',
