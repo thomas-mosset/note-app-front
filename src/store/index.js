@@ -99,6 +99,15 @@ export default createStore({
       state.isLogged = false;
       state.loggedUser = [];
     },
+
+    SIGNUP (state, user) {
+      // fake an id for this user
+      user.id = state.users.length;
+
+      state.loggedUser = user;
+      state.isLogged = true;
+      state.users.push(user);
+    },
   },
   actions: {
     login (context, user) {
@@ -114,6 +123,9 @@ export default createStore({
       console.log("deleteProfile - loggedUser", loggedUser);
 
       context.commit('DELETE_PROFILE', loggedUser);
-    }
+    },
+    signup (context, user) {
+      context.commit('SIGNUP', user);
+    },
   },
 })
