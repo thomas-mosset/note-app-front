@@ -9,7 +9,6 @@
     class="mx-auto my-16"
     max-width="500"
   >
-
     <v-container fluid>
         <v-row>
           <v-col cols="12">
@@ -125,11 +124,9 @@
             <v-card-actions>
               <v-spacer></v-spacer>
 
-              <v-btn size="small" color="surface-variant" variant="text" icon="mdi-heart"></v-btn>
-
-              <v-btn size="small" color="surface-variant" variant="text" icon="mdi-bookmark"></v-btn>
-
-              <v-btn size="small" color="surface-variant" variant="text" icon="mdi-share-variant"></v-btn>
+              <router-link :to="card.link">
+                <v-btn size="small">{{ card.subtitle }}</v-btn>
+              </router-link>
             </v-card-actions>
           </v-card>
         </v-col>
@@ -146,8 +143,8 @@ export default {
   name: 'myAccount',
   data: () => ({
     cards: [
-      { title: 'My notes', src: 'https://images.pexels.com/photos/983826/pexels-photo-983826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', flex: 6 },
-      { title: 'Add a note', src: 'https://images.pexels.com/photos/1925536/pexels-photo-1925536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', flex: 6 },
+      { title: 'My notes', src: 'https://images.pexels.com/photos/983826/pexels-photo-983826.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', subtitle: "Acces to my notes", flex: 6, link: "my-notes" },
+      { title: 'Add a note', src: 'https://images.pexels.com/photos/1925536/pexels-photo-1925536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1', subtitle: "Create a note", flex: 6, link: "add-a-note" },
     ],
      dialog: false,
   }),

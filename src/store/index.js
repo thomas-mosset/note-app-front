@@ -8,7 +8,31 @@ export default createStore({
         pseudo: "userTest",
         email: "user-0@gmail.com",
         password: "pipou42",
-        notes: [],
+        notes: [
+          {
+            id: 0,
+            title: 'First note',
+            content: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsum, facilis.',
+            author: 'userTest',
+            statut: false, // not archived
+            category: null,
+            creationDate: "2023-03-14",
+            updatedDate: null,
+          },
+          {
+            id: 1,
+            title: 'Random note',
+            content: 'iet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel',
+            author: 'userTest',
+            statut: true, // archived
+            category: {
+              id: 1,
+              title: "Medical",
+            },
+            creationDate: "2023-03-16",
+            updatedDate: null,
+          }
+        ],
       },
       {
         id: 1,
@@ -16,6 +40,18 @@ export default createStore({
         email: "superuser@gmail.com",
         password: "bebou97",
         notes: [],
+      },
+    ],
+    categories: [
+      {
+        id: 0,
+        title: "Food",
+        // color : "", TODO ?
+      },
+      {
+        id: 1,
+        title: "Medical",
+        // color : "#cf2932", TODO ?
       },
     ],
     isLogged: false,
