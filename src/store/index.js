@@ -22,6 +22,7 @@ export default createStore({
     loggedUser: null,
     loginMessageError: "",
     editMessageError: "",
+    signupMessageError: "",
   },
   getters: {
     loginMessageError (state) {
@@ -32,6 +33,9 @@ export default createStore({
     },
     loggedUserInfos (state) {
       return state.loggedUser;
+    },
+    signupMessageError (state) {
+      return state.signupMessageError;
     },
   },
   mutations: {
@@ -101,12 +105,25 @@ export default createStore({
     },
 
     SIGNUP (state, user) {
-      // fake an id for this user
-      user.id = state.users.length;
+      // empty error message
+      state.signupMessageError = "";
 
-      state.loggedUser = user;
-      state.isLogged = true;
-      state.users.push(user);
+      for (let index = 0; index < state.users.length; index++) {
+        const userInState = state.users[index];
+
+        if (userInState.email === user.email) {
+          state.signupMessageError = "Email already used !";
+        }
+      }
+
+      if (state.signupMessageError === "") {
+        // fake an id for this user
+        user.id = state.users.length;
+
+        state.loggedUser = user;
+        state.isLogged = true;
+        state.users.push(user);
+      }
     },
   },
   actions: {

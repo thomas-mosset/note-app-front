@@ -58,10 +58,25 @@
       >Submit</v-btn>
   </v-form>
 
+  <!-- error message if registration is incorrect -->
+  <v-row 
+    v-if="signupMessageError !==''" 
+    class="d-flex justify-center mb-12"
+  >
+    <v-col cols="6">
+      <v-alert
+        density="compact"
+        type="warning"
+        :text="signupMessageError"
+      ></v-alert>
+    </v-col>
+  </v-row>
+
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'TheSignin',
@@ -119,11 +134,16 @@ export default {
     submitSignup(user) {      
       this.signup(user);
 
-      // Redirect to the profil page
-      this.$router.push('my-account');
+      if (this.signupMessageError === "") {
+        // Redirect to the profil page
+        this.$router.push('my-account');
+      }
     }
   },
 
+  computed: {
+    ...mapGetters(['signupMessageError']),
+  },
 };
 </script>
 
