@@ -57,6 +57,8 @@ export default createStore({
           state.loginMessageError = "Email and/or password incorrect !";
         }
       }
+
+      state.loginMessageError = "";
     },
 
     LOGOUT (state) {

@@ -37,7 +37,9 @@
                         <v-icon class="me-1" icon="mdi-account-edit"></v-icon>
                       </router-link>
                       <span class="me-1">·</span>
-                      <v-icon class="me-1" icon="mdi-logout-variant"></v-icon>
+                      <router-link to="/logout" @click="logout();" class="router">
+                        <v-icon class="me-1" icon="mdi-logout-variant"></v-icon>
+                      </router-link>
                     </div>
                   </template>
                 </v-list-item>
@@ -100,6 +102,12 @@ export default {
     if (this.$store.state.isLogged === false) {
       this.$router.push({ name: 'login' })
     }
+  },
+
+  methods: {
+    logout() {
+      this.$store.dispatch("logout");
+    },
   },
 
   computed: {
