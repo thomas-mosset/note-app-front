@@ -171,6 +171,12 @@ export default createStore({
 
       state.loggedUser.notes = state.loggedUser.notes.filter(note => note !== deletedNote);
     },
+
+    ARCHIVE_A_NOTE (state, receivedNote) {
+      const noteToArchived = state.loggedUser.notes.find(note => note.id === receivedNote.id);
+
+      noteToArchived.statut = !noteToArchived.statut;
+    },
   },
   actions: {
     login (context, user) {
@@ -193,6 +199,9 @@ export default createStore({
     },
     deleteANote (context, note) {
       context.commit('DELETE_A_NOTE', note);
+    },
+    archiveANote (context, note) {
+      context.commit('ARCHIVE_A_NOTE', note);
     },
   },
 })

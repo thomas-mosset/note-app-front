@@ -53,9 +53,9 @@
               <v-btn size="small" color="white" variant="text" icon="mdi-pencil"></v-btn>
             </router-link>
 
-            <v-btn size="small" color="white" variant="text" icon="mdi-trash-can" @click="deleteNote(note);"></v-btn>
+              <v-btn size="small" color="white" variant="text" icon="mdi-trash-can" @click="deleteNote(note);"></v-btn>
 
-              <v-btn size="small" color="white" variant="text" :icon="note.statut ? 'mdi-archive-refresh' : 'mdi-archive-arrow-down'"></v-btn>
+              <v-btn size="small" color="white" variant="text" :icon="note.statut ? 'mdi-archive-refresh' : 'mdi-archive-arrow-down'" @click="archiveNote(note);"></v-btn>
             </v-card-actions>
           </v-card>
       </v-col>
@@ -119,6 +119,9 @@ export default {
   methods: {
     deleteNote(note) {
       this.$store.dispatch("deleteANote", note);
+    },
+    archiveNote(note) {
+      this.$store.dispatch("archiveANote", note);
     },
   },
 
