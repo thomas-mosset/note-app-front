@@ -165,6 +165,12 @@ export default createStore({
     ADD_A_NOTE (state, note) {
       state.loggedUser.notes.push(note);
     },
+
+    DELETE_A_NOTE (state, receivedNote) {
+      const deletedNote = state.loggedUser.notes.find(note => note.id === receivedNote.id);
+
+      state.loggedUser.notes = state.loggedUser.notes.filter(note => note !== deletedNote);
+    },
   },
   actions: {
     login (context, user) {
@@ -177,8 +183,6 @@ export default createStore({
       context.commit('EDIT_USER_INFOS', editedUserInfos);
     },
     deleteProfile (context, loggedUser) {
-      console.log("deleteProfile - loggedUser", loggedUser);
-
       context.commit('DELETE_PROFILE', loggedUser);
     },
     signup (context, user) {
@@ -186,6 +190,9 @@ export default createStore({
     },
     addANote (context, note) {
       context.commit('ADD_A_NOTE', note);
+    },
+    deleteANote (context, note) {
+      context.commit('DELETE_A_NOTE', note);
     },
   },
 })

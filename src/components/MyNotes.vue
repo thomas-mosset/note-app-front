@@ -49,9 +49,11 @@
                 sorting notes (status + date)
               -->
 
+            <router-link to="/edit-a-note">
               <v-btn size="small" color="white" variant="text" icon="mdi-pencil"></v-btn>
+            </router-link>
 
-              <v-btn size="small" color="white" variant="text" icon="mdi-trash-can"></v-btn>
+            <v-btn size="small" color="white" variant="text" icon="mdi-trash-can" @click="deleteNote(note);"></v-btn>
 
               <v-btn size="small" color="white" variant="text" :icon="note.statut ? 'mdi-archive-refresh' : 'mdi-archive-arrow-down'"></v-btn>
             </v-card-actions>
@@ -115,6 +117,9 @@ export default {
   },
 
   methods: {
+    deleteNote(note) {
+      this.$store.dispatch("deleteANote", note);
+    },
   },
 
   computed: {
