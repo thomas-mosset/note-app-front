@@ -161,6 +161,10 @@ export default createStore({
         state.users.push(user);
       }
     },
+
+    ADD_A_NOTE (state, note) {
+      state.loggedUser.notes.push(note);
+    },
   },
   actions: {
     login (context, user) {
@@ -179,6 +183,9 @@ export default createStore({
     },
     signup (context, user) {
       context.commit('SIGNUP', user);
+    },
+    addANote (context, note) {
+      context.commit('ADD_A_NOTE', note);
     },
   },
 })

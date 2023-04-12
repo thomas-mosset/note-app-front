@@ -1,9 +1,8 @@
 <!-- eslint-disable no-useless-escape -->
 <template>
-<p>Add a note</p>
-  <!-- <v-form 
+  <v-form 
     v-model="valid"
-    @submit.prevent="submitNote(noteInfos)"
+    @submit.prevent="submitANote(noteInfos)"
     ref="form"
     class="my-14"
   >
@@ -16,28 +15,31 @@
           cols="8"
         >
           <v-text-field
-            v-model="noteInfos.pseudo"
-            label="Pseudo"
+            v-model="note.title"
+            label="Title"
             required
           ></v-text-field>
+        </v-col>
+
+        <v-col
+          cols="8"
+        >
+          <v-textarea
+            v-model="note.content"
+            label="Content"
+            required
+          ></v-textarea>
         </v-col>
 
         <v-col
           cols="8"
         >
           <v-text-field
-            v-model="noteInfos.email"
-            label="E-mail"
-            required
+            v-model="note.category"
+            label="Category"
           ></v-text-field>
         </v-col>
 
-        <v-col
-          cols="8"
-          class="mt-16"
-        >
-          To change your password, email address or pseudo, you must enter your current password.
-        </v-col>
       </v-row>
 
       <v-btn 
@@ -53,12 +55,12 @@
         class="mt-2 mx-2"
         @click="$router.go(-1)"
       >Go back to all my notes</v-btn>
-  </v-form> -->
+  </v-form>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
-// import { mapActions } from 'vuex';
+import { mapActions } from 'vuex';
 
 export default {
   name: 'myAccount',
@@ -71,7 +73,7 @@ export default {
       author: '',
       statut: false, // not archived
       category: "",
-      creationDate: "", // https://momentjs.com/docs/#/displaying/
+      creationDate: "",
       updatedDate: null,
     },
   }),
@@ -89,17 +91,20 @@ export default {
   
 
   methods: {
-    // ...mapActions(['addANote']),
+    ...mapActions(['addANote']),
 
-    /* addANote(noteInfos) {
-      // let canSubmit = false;
+    submitANote() {
+      // add some infos
+      this.note.id = this.loggedUserInfos.notes.length + 1;
+      this.note.author = this.loggedUserInfos.pseudo;
+      this.note.creationDate = new Date().getFullYear() + "-" + (new Date().getMonth()+1) + "-" + new Date().getDate();
      
       // call store function
-      // this.addANote(noteInfos);
+      this.addANote(this.note);
 
       // Redirect to the notes page
-      // this.$router.push('my-notes');
-    } */
+      this.$router.push('my-notes');
+    }
   },
 }
 </script>

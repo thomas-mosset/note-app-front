@@ -5,7 +5,7 @@
   </v-col>
 </v-row>
 
-<v-row>
+<v-row class="mb-12">
   <v-container>
       <v-row dense>
         <v-col
@@ -55,8 +55,45 @@
 
               <v-btn size="small" color="white" variant="text" :icon="note.statut ? 'mdi-archive-refresh' : 'mdi-archive-arrow-down'"></v-btn>
             </v-card-actions>
-        </v-card>
+          </v-card>
       </v-col>
+
+      <v-col v-if="loggedUserInfos.notes.length === 0">
+        <p >No created note yet !</p>
+
+        <v-card
+            color="#ff8906"
+            theme="dark"
+            class="mx-auto my-4"
+            max-width="344"
+          >
+            <div class="d-flex flex-no-wrap justify-space-between">
+              <div>
+                <v-card-title class="text-h5">
+                  Create a note
+                </v-card-title>
+
+              <router-link to="/add-a-note">
+                <v-btn
+                  class="ms-2"
+                  icon="mdi-pencil-plus"
+                  variant="text"
+                  color="white"
+                ></v-btn>
+              </router-link>
+            </div>
+
+              <v-avatar
+                class="ma-3"
+                size="125"
+                rounded="0"
+              >
+                <v-img src="https://images.pexels.com/photos/1925536/pexels-photo-1925536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"></v-img>
+              </v-avatar>
+            </div>
+          </v-card>
+      </v-col>
+      
     </v-row>
   </v-container>
 </v-row>
