@@ -1,24 +1,28 @@
-# note-app-front
+# Note App
 
-## Project setup
-```
-yarn install
-```
+## **Résumé**
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+Un app permettant une prise de note. (Toutes les actions se font côté front-end.)
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## **Démo**
 
-### Lints and fixes files
-```
-yarn lint
-```
+(A venir)
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## **Utilisation de**
+
+- [Vue.js 3](https://vuejs.org/)
+- [Vuex](https://vuex.vuejs.org/)
+- [Vue Router](https://router.vuejs.org/)
+- [Vuetify](https://vuetifyjs.com/en/)
+
+## **Fonctionnalités**
+
+- Création, édition, suppression d’un profil.
+
+- Connexion, déconnexion d'un profil.
+
+- Édition de son profil.
+
+- Page de listing de toutes les notes liées au profil connecté.
+
+- Création, édition, suppression, modification du statut (archivage) d'une note.

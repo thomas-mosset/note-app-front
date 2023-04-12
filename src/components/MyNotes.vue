@@ -43,8 +43,6 @@
               <!-- 
                 TODO :
                 Edition of a note
-                Deletion of a note
-                Archive a note
 
                 sorting notes (status + date)
               -->
