@@ -25,10 +25,7 @@ export default createStore({
             content: 'iet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel',
             author: 'userTest',
             statut: true, // archived
-            category: {
-              id: 1,
-              title: "Medical",
-            },
+            category: "Medical",
             creationDate: "2023-03-16",
             updatedDate: null,
           }
@@ -40,18 +37,6 @@ export default createStore({
         email: "superuser@gmail.com",
         password: "bebou97",
         notes: [],
-      },
-    ],
-    categories: [
-      {
-        id: 0,
-        title: "Food",
-        // color : "", TODO ?
-      },
-      {
-        id: 1,
-        title: "Medical",
-        // color : "#cf2932", TODO ?
       },
     ],
     isLogged: false,
@@ -177,6 +162,16 @@ export default createStore({
 
       noteToArchived.statut = !noteToArchived.statut;
     },
+
+    EDIT_A_NOTE (state, receivedNote) {
+      const noteToEdit = state.loggedUser.notes.find(note => note.id === receivedNote.id);
+
+      // change user infos in "fake store"
+      noteToEdit.title = receivedNote.title;
+      noteToEdit.content = receivedNote.content;
+      noteToEdit.category = receivedNote.category;
+      noteToEdit.updatedDate = receivedNote.updatedDate;
+    },
   },
   actions: {
     login (context, user) {
@@ -202,6 +197,9 @@ export default createStore({
     },
     archiveANote (context, note) {
       context.commit('ARCHIVE_A_NOTE', note);
+    },
+    editANote (context, note) {
+      context.commit('EDIT_A_NOTE', note);
     },
   },
 })

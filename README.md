@@ -2,7 +2,7 @@
 
 ## **Résumé**
 
-Un app permettant une prise de note. (Toutes les actions se font côté front-end.)
+Une app permettant une prise et gestion de note. (Toutes les actions se font côté front-end.)
 
 ## **Démo**
 

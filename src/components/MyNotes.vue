@@ -35,21 +35,17 @@
                 Uncategorized
               </p>
               <p v-else class="ml-2 text-bold">
-                {{ note.category.title }}
+                {{ note.category }}
               </p>
 
               <v-spacer></v-spacer>
 
               <!-- 
                 TODO :
-                Edition of a note
-
                 sorting notes (status + date)
               -->
-
-            <router-link to="/edit-a-note">
-              <v-btn size="small" color="white" variant="text" icon="mdi-pencil"></v-btn>
-            </router-link>
+    
+              <EditANote :note="note" />
 
               <v-btn size="small" color="white" variant="text" icon="mdi-trash-can" @click="deleteNote(note);"></v-btn>
 
@@ -101,11 +97,16 @@
 </template>
 
 <script>
+import EditANote from "./EditANote.vue";
+
 import { mapGetters } from 'vuex';
 
 export default {
   name: 'MyNotes',
   data: () => ({}),
+  components: {
+    EditANote,
+  },
 
   // prevent user to access this page if not logged in
   beforeCreate () {
