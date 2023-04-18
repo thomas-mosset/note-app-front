@@ -26,3 +26,5 @@ Une app permettant une prise et gestion de note. (Toutes les actions se font cô
 - Page de listing de toutes les notes liées au profil connecté.
 
 - Création, édition, suppression, modification du statut (archivage) d'une note.
+  
+- Filtre par statut (notes archivées / toutes les notes).
