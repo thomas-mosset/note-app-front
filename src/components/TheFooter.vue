@@ -2,8 +2,9 @@
     <v-footer
       class="footer text-center d-flex flex-column"
       color="primary"
+      height="10"
     >
-      <div>
+      <div class="height">
         <a 
           v-for="icon in icons"
           :key="icon.icon"

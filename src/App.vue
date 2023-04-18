@@ -3,8 +3,8 @@
 
     <NavigationDrawer />
 
-    <v-main>
-      <router-view/>
+    <v-main class="main">
+      <router-view />
     </v-main>
 
     <TheFooter />
@@ -42,5 +42,9 @@ a {
   &.router-link-exact-active {
     color: #ff8906;
   }
+}
+
+.main {
+  min-height: 90vh;
 }
 </style>
