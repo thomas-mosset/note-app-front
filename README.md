@@ -6,7 +6,7 @@ Une app permettant une prise et gestion de note. (Toutes les actions se font cô
 
 ## **Démo**
 
-(A venir)
+[Se rendre sur le site](https://note-app-front.netlify.app/)
 
 ## **Utilisation de**
 
